@@ -35,7 +35,24 @@ router.get('/user',(req,res)=>{
     .then(users=>res.status(200).json(users))
     .catch(err=>res.status(400).json(err))
     })
+//query
+router.get('/user',(req,res)=>{
+    UserModel.select({name:true})
+    .then(users=>res.status(200).json(users))
+    .catch(err=>res.status(400).json(err))
+})
 
+router.get('/user',(req,res)=>{
+    UserModel.sort({name:'Imene'})
+    .then(users=>res.status(200).json(users))
+    .catch(err=>res.status(400).json(err))
+})
+
+router.get('/user',(req,res)=>{
+    UserModel.limit(2)
+    .then(users=>res.status(200).json(users))
+    .catch(err=>res.status(400).json(err))
+})
 //other route : delete
 router.delete('/user/:id',(req,res)=>{
 
